@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'WPINC' ) ) { die('Direct access prohibited!'); }
 /**
  * Add Opengraph and Twitter cards meta.
  * Uses priority '1' to execute as early as possible.
@@ -60,7 +61,7 @@ function iewp_metadata_insert()
 	}
 
 	if( is_home() || is_archive() )
-	{	
+	{
 		if( $twitter == 'true' )
 		{
 			if( $twitter_handle != '' )
@@ -119,6 +120,6 @@ function iewp_metadata_insert()
 	{
 		return;
 	}
-	
+
 }
 add_action( 'wp_head', 'iewp_metadata_insert', 1 );

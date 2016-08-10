@@ -1,2 +1,1 @@
-<?php
-# Silence is golden.
+<?php // Nothing to see here, please move along

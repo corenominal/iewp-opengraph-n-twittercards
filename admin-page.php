@@ -1,10 +1,11 @@
 <?php
+if ( ! defined( 'WPINC' ) ) { die('Direct access prohibited!'); }
 /**
  * Add submenu item to the default WordPress "Settings" menu.
  */
 function iewp_metadata()
 {
-	add_submenu_page( 
+	add_submenu_page(
 		'options-general.php', // parent slug to attach to
 		'Metadata', // page title
 		'Metadata', // menu title
@@ -20,7 +21,7 @@ add_action( 'admin_menu', 'iewp_metadata' );
 
 /**
  * Register custom settings
- */ 
+ */
 function iewp_metadata_register()
 {
 	/**
@@ -46,7 +47,7 @@ function iewp_metadata_register()
 		'iewp_metadata_group', // option group
 		'iewp_default_open_graph_img' // option name
 		);
-	
+
 	/**
 	 * Create the settings section for this group of settings
 	 */
@@ -56,7 +57,7 @@ function iewp_metadata_register()
 		'iewp_metadata_section', // callback
 		'iewp_metadata' // page
 		);
-	
+
 	/**
 	 * Add the settings fields
 	 */
@@ -65,7 +66,7 @@ function iewp_metadata_register()
 		'Twitter Account', // title/label
 		'iewp_twitter_cards_user', // callback
 		'iewp_metadata', // page
-		'iewp-metadata' // settings section 
+		'iewp-metadata' // settings section
 		);
 
 	add_settings_field(
@@ -73,7 +74,7 @@ function iewp_metadata_register()
 		'Enable Twitter Cards', // title/label
 		'iewp_enable_twitter_cards', // callback
 		'iewp_metadata', // page
-		'iewp-metadata' // settings section 
+		'iewp-metadata' // settings section
 		);
 
 	add_settings_field(
@@ -81,7 +82,7 @@ function iewp_metadata_register()
 		'Enable Open Graph', // title/label
 		'iewp_enable_open_graph', // callback
 		'iewp_metadata', // page
-		'iewp-metadata' // settings section 
+		'iewp-metadata' // settings section
 		);
 
 	add_settings_field(
@@ -89,7 +90,7 @@ function iewp_metadata_register()
 		'Default Open Graph Image', // title/label
 		'iewp_default_open_graph_img', // callback
 		'iewp_metadata', // page
-		'iewp-metadata' // settings section 
+		'iewp-metadata' // settings section
 		);
 
 }
@@ -176,7 +177,7 @@ function iewp_metadata_callback()
 		<hr>
 
 		<form method="POST" action="options.php">
-			
+
 			<?php settings_fields( 'iewp_metadata_group' ); ?>
 			<?php do_settings_sections( 'iewp_metadata' ); ?>
 			<?php submit_button(); ?>

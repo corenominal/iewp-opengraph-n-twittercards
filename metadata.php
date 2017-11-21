@@ -60,7 +60,7 @@ function iewp_metadata_insert()
 		$opengraph_image = plugin_dir_url( __FILE__ ) . 'assets/open-graph-default.png';
 	}
 
-	if( is_home() || is_archive() )
+	if( is_home() || is_front_page() || is_archive() )
 	{
 		if( $twitter == 'true' )
 		{
